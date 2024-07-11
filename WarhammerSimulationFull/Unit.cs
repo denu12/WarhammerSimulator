@@ -19,7 +19,7 @@ namespace WarhammerSimulationFull
         public double secondaryVictoryScore;
         public int minusWound, minusHit, minusAtk;
         public string faction = "";
-        public Boolean wardFirstTurn = false;
+        public int wardFirstTurn = 7;
 
 
         public Unit() { 
@@ -115,11 +115,11 @@ namespace WarhammerSimulationFull
 
             Unit dummy = new Unit("dummy", 100000, 300, new Model(1, 4, 7, null));
 
-            double result =  dummy.computeDamageTaken(random, damages) / rounds;
+            double result =  dummy.computeDamageTaken(random, damages, 0) / rounds;
             return result;
         }
 
-        public double computeDamageTaken(Random random, List<Damage> damages)
+        public double computeDamageTaken(Random random, List<Damage> damages, int turn)
         {
             int damageTaken = 0;
             foreach (Damage d in damages)
@@ -136,19 +136,31 @@ namespace WarhammerSimulationFull
             }
 
             double finaldamagetaken = 0;
+
+
             for(int i = 0; i < damageTaken; ++i)
             {
                 int wardRoll = random.Next(6) + 1;
-                if(wardRoll < this.models[0].ward)
-                    finaldamagetaken++;
+
+                if (turn != 1)
+                {
+                    if (wardRoll < this.models[0].ward)
+                        finaldamagetaken++;
+                }
+                else
+                {
+                    if (wardRoll < Math.Min(this.wardFirstTurn, this.models[0].ward))
+                        finaldamagetaken++;
+                }
+
             }
 
             return finaldamagetaken;
         }
 
-        public void processDmg(Random random, List<Damage> damages)
+        public void processDmg(Random random, List<Damage> damages, int turn)
         {
-            int damageTaken= (int) this.computeDamageTaken(random, damages);
+            int damageTaken= (int) this.computeDamageTaken(random, damages, turn);
             while( damageTaken > 0 && this.models.Count > 0 )
             {
                 Model m = this.models.Last();
@@ -205,8 +217,8 @@ namespace WarhammerSimulationFull
                     List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
                     List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
 
-                    thisUnit.processDmg(random, enemyDMG);
-                    enemyUnit.processDmg(random, personalDmg);
+                    thisUnit.processDmg(random, enemyDMG, t);
+                    enemyUnit.processDmg(random, personalDmg, t);
                     t++;
                 }
                 thisCount += thisUnit.pointsPerModel* thisUnit.models.Count;
