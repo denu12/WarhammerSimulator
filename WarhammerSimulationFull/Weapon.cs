@@ -28,12 +28,14 @@ namespace WarhammerSimulationFull
                 CritHit = split[5] == "hit";
                 CritMortal = split[5] == "mortal";
                 CritAutowound = split[5] == "wound";
+                Charge = split[5] == "charge";
             }
 
             if (split.Length > 6)
             {
                 AntiInf = split[6] == "inf";
                 AntiCharge = split[6] == "a";
+                if(Charge == false)
                 Charge = split[6] == "charge";
             }
                 
@@ -48,12 +50,18 @@ namespace WarhammerSimulationFull
             this.damage = damage;
         }
 
-        public Damage simulateAttackSequence(Random random, int MinusHit = 0, int Minuswound = 0, int minusAtk = 0)
+        public Damage simulateAttackSequence(Random random, int MinusHit = 0, int Minuswound = 0, int minusAtk = 0, int turn = 0)
         {
             Damage result = new Damage();
             result.rend = rend;
 
             int realAtks = (int) Math.Max(1, attacks - minusAtk);
+
+            double dmg = this.damage;
+
+            if (turn == 1 && this.Charge) {
+                dmg = dmg + 1;
+            }
 
 
             for (int i = 0; i < realAtks; ++i)
@@ -62,10 +70,10 @@ namespace WarhammerSimulationFull
                 int woundrolls = 1;
 
                 if (hitRoll == 6 && CritMortal)
-                    result.mortal += this.damage;
+                    result.mortal += dmg;
                 else
                 if (hitRoll == 6 && CritAutowound)
-                    result.damage += this.damage;
+                    result.damage += dmg;
                 else if(hitRoll == 6 && CritHit)
                 {
                     woundrolls += 2;
@@ -73,7 +81,7 @@ namespace WarhammerSimulationFull
                     {
                         int woundRoll = random.Next(6) + 1;
                         if (woundRoll - Minuswound >= this.wound)
-                            result.damage += this.damage;
+                            result.damage += dmg;
                     }
                 }
                 else
@@ -82,20 +90,20 @@ namespace WarhammerSimulationFull
                     {
                         int woundRoll = random.Next(6) + 1;
                         if (woundRoll - Minuswound >= this.wound)
-                            result.damage += this.damage;
+                            result.damage += dmg;
                     }
             }
             return result;
         }
 
-        public Damage simulateRoundsDmg(Random random, double rounds)
+        public Damage simulateRoundsDmg(Random random, double rounds, int turn)
         {
             Damage result = new Damage();
             result.rend = rend;
 
             for(int i = 0;i < rounds; ++i)
             {
-                Damage minorResult = this.simulateAttackSequence(random);
+                Damage minorResult = this.simulateAttackSequence(random, 0, 0, 0, turn);
                 result.damage += minorResult.damage;
                 result.mortal += minorResult.mortal;
             }

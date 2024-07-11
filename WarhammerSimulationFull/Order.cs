@@ -18,6 +18,27 @@ namespace WarhammerSimulationFull
             return u;
         }
 
+        public Unit FreeguildCavaliers()
+        {
+            List<string> weapons = new List<string> { "3;4;4;1;1;charge", "2;5;3;0;1" };
+            var u = new Unit("FreeguildCavaliers;5;170;3;3;7;", weapons);
+            return u;
+        }
+
+        public Unit DrakespawnChariot()
+        {
+            List<string> weapons = new List<string> { "3;3;4;1;1;charge", "6;3;3;1;1" };
+            var u = new Unit("DrakespawnChariot;1;120;8;4;7;", weapons);
+            return u;
+        }
+
+        public Unit DrakespawnKnights()
+        {
+            List<string> weapons = new List<string> { "2;3;4;1;1;charge", "4;4;3;1;1" };
+            var u = new Unit("DrakespawnKnights;5;180;3;3;7;", weapons);
+            return u;
+        }
+
         public Unit Longbeards()
         {
             List<string> weapons = new List<string> { "2;3;4;1;1" };
@@ -109,6 +130,20 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "4;3;3;2;2;", "3;4;2;2;2" };
             var u = new Unit("Desolators;2;230;5;3;7;", weapons);
+            return u;
+        }
+
+        public Unit Fulminators()
+        {
+            List<string> weapons = new List<string> { "3;3;3;1;2;charge", "3;4;2;2;2" };
+            var u = new Unit("Fulminators;2;230;5;3;7;", weapons);
+            return u;
+        }
+
+        public Unit Prosecutors()
+        {
+            List<string> weapons = new List<string> { "3;3;3;1;1;charge" };
+            var u = new Unit("Prosecutors;3;140;2;3;7;", weapons);
             return u;
         }
 
@@ -276,10 +311,27 @@ namespace WarhammerSimulationFull
             return u;
         }
 
+        public Unit MorsarrGuard()
+        {
+            List<string> weapons = new List<string> { "2;3;4;2;1;charge", "3;4;3;1;2" };
+            var u = new Unit("MorsarrGuard;3;170;4;4;7;", weapons);
+            return u;
+        }
+
+        public Unit IshlaenGuard()
+        {
+            List<string> weapons = new List<string> { "2;3;4;2;1", "3;4;3;1;2" };
+            var u = new Unit("IshlaenGuard (-1 atk);3;170;4;4;7;", weapons);
+            u.wardFirstTurn = true;
+            u.minusAtk = 1;
+            return u;
+        }
+
+
         public Unit VanariWardens()
         {
             List<string> weapons = new List<string> { "2;3;4;0;1;mortal" };
-            var u = new Unit("VanariWardens;10;140;1;4;7;", weapons);
+            var u = new Unit("VanariWardens (-1 hit);10;140;1;4;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -287,10 +339,19 @@ namespace WarhammerSimulationFull
         public Unit VanariBladelords()
         {
             List<string> weapons = new List<string> { "3;3;4;2;1;mortal" };
-            var u = new Unit("VanariBladelords;5;140;2;4;7;", weapons);
+            var u = new Unit("VanariBladelords (-1 hit);5;140;2;4;7;", weapons);
             u.minusHit = 1;
             return u;
         }
+
+        public Unit VanariDawnriders()
+        {
+            List<string> weapons = new List<string> { "2;3;4;1;1;mortal;charge" };
+            var u = new Unit("VanariDawnriders (-1 hit);5;210;3;3;7;", weapons);
+            u.minusHit = 1;
+            return u;
+        }
+
 
         public Unit AlarithStoneGuard ()
         {
@@ -373,7 +434,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Cities()
         {
-            List<Unit> l = new List<Unit> { Steelhelms(), Longbeards(), BlackGuard(), Hammerers(), HammerersWithWard(), Ironbreakers(), IronbreakersWithWard(), Bleakswords(), Executioners() };
+            List<Unit> l = new List<Unit> { Steelhelms(), FreeguildCavaliers(), DrakespawnChariot(), DrakespawnKnights(), Longbeards(), BlackGuard(), Hammerers(), HammerersWithWard(), Ironbreakers(), IronbreakersWithWard(), Bleakswords(), Executioners() };
             foreach (Unit u in l)
                 u.faction = "Cities";
 
@@ -410,7 +471,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Idoneth()
         {
-            List<Unit> l = new List<Unit> { NamartiThralls() };
+            List<Unit> l = new List<Unit> { NamartiThralls(), MorsarrGuard(), IshlaenGuard() };
             foreach (Unit u in l)
                 u.faction = "Idoneth";
 
@@ -419,7 +480,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Lumineth()
         {
-            List<Unit> l = new List<Unit> { VanariWardens(), VanariBladelords(), AlarithStoneGuard(), AlarithStoneGuardWared() };
+            List<Unit> l = new List<Unit> { VanariWardens(), VanariBladelords(), VanariDawnriders(), AlarithStoneGuard(), AlarithStoneGuardWared() };
             foreach (Unit u in l)
                 u.faction = "Lumineth";
 
@@ -429,7 +490,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Stormcast()
         {
-            List<Unit> l = new List<Unit> { Vanquishers(), Vindictors(), Annihilators(), AnnihilatorsHammers(), Grypthounds(), Concussors(), Desolators(), Praetors(), Reclusians(), Liberators() };
+            List<Unit> l = new List<Unit> { Vanquishers(), Vindictors(), Annihilators(), AnnihilatorsHammers(), Fulminators(), Prosecutors(), Grypthounds(), Concussors(), Desolators(), Praetors(), Reclusians(), Liberators() };
             foreach (Unit u in l)
                 u.faction = "Stormcast";
 

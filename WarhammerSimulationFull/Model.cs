@@ -24,19 +24,19 @@ namespace WarhammerSimulationFull
             return result;
         }
 
-        public List<Damage> simulateAttackSequence(Random random, int MinusHit = 0, int Minuswound = 0, int minusAtk = 0)
+        public List<Damage> simulateAttackSequence(Random random, int MinusHit = 0, int Minuswound = 0, int minusAtk = 0, int turn = 0)
         {
             List<Damage> result = new List<Damage>();
             foreach (var weapon in weapons) 
-                result.Add(weapon.simulateAttackSequence(random, MinusHit, Minuswound, minusAtk));
+                result.Add(weapon.simulateAttackSequence(random, MinusHit, Minuswound, minusAtk, turn));
             return result;
         }
 
-        public List<Damage> simulateRoundsDmg(Random random, double rounds)
+        public List<Damage> simulateRoundsDmg(Random random, double rounds, int turn)
         {
             List<Damage> overallDamage = new List<Damage>();
             foreach (Weapon weapon in this.weapons)
-                overallDamage.Add(weapon.simulateRoundsDmg(random, rounds));
+                overallDamage.Add(weapon.simulateRoundsDmg(random, rounds, turn));
 
             return overallDamage;
         }

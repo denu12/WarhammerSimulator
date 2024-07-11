@@ -11,9 +11,11 @@ Simulator sim = new Simulator();
 Order order = new Order();
 Chaos chaos = new Chaos();
 Unit unit = chaos.Twinsouls();
-Unit unit2 = order.Vanquishers();
+Unit unit2 = order.FreeguildCavaliers();
 
+Console.WriteLine(unit2.simulateAverageDMG(random, 1000, 0));
 
+Console.WriteLine(unit2.simulateAverageDMG(random, 1000, 1));
 
 Console.WriteLine(unit.simulateFight(unit2, 100, 1000));
 

@@ -19,6 +19,7 @@ namespace WarhammerSimulationFull
         public double secondaryVictoryScore;
         public int minusWound, minusHit, minusAtk;
         public string faction = "";
+        public Boolean wardFirstTurn = false;
 
 
         public Unit() { 
@@ -90,12 +91,12 @@ namespace WarhammerSimulationFull
         }
 
 
-       public List<Damage> simulateAttackSequence(Random random, int MinusHit = 0, int Minuswound = 0, int minusAtk = 0)
+       public List<Damage> simulateAttackSequence(Random random, int MinusHit = 0, int Minuswound = 0, int minusAtk = 0, int turn = 0)
         {
             List<Damage> result = new List<Damage>();
             foreach(Model model in models)
             {
-                foreach (Damage d in model.simulateAttackSequence(random, MinusHit, Minuswound, minusAtk))
+                foreach (Damage d in model.simulateAttackSequence(random, MinusHit, Minuswound, minusAtk, turn))
                     result.Add(d);
             }
 
@@ -103,12 +104,12 @@ namespace WarhammerSimulationFull
         }
 
 
-       public double simulateAverageDMG(Random random, double rounds)
+       public double simulateAverageDMG(Random random, double rounds, int turn)
         {
             List<Damage> damages = new List<Damage>();
             foreach (Model m in models)
             {
-                foreach (Damage d in m.simulateRoundsDmg(random, rounds))
+                foreach (Damage d in m.simulateRoundsDmg(random, rounds, turn))
                     damages.Add(d);
             }
 
@@ -197,14 +198,16 @@ namespace WarhammerSimulationFull
                     enemyUnit.models.Add(enemy.models.First().copy());
                 }
 
+                int t = 1;
                 while (thisUnit.models.Count > 0 && enemyUnit.models.Count > 0)
                 {
 
-                    List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk);
-                    List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk);
+                    List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
+                    List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
 
                     thisUnit.processDmg(random, enemyDMG);
                     enemyUnit.processDmg(random, personalDmg);
+                    t++;
                 }
                 thisCount += thisUnit.pointsPerModel* thisUnit.models.Count;
                 enemyCount += enemyUnit.pointsPerModel*enemyUnit.models.Count;
