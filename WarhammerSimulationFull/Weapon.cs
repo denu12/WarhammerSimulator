@@ -12,6 +12,8 @@ namespace WarhammerSimulationFull
         public double attacks, hit, wound, rend, damage;
         public Boolean CritHit, CritMortal, CritAutowound;
         public Boolean AntiInf, Charge, AntiCharge;
+        public Boolean ChargeAtk;
+        public Boolean ChargeMortal = false;
 
 
         public Weapon(string stats)
@@ -29,14 +31,18 @@ namespace WarhammerSimulationFull
                 CritMortal = split[5] == "mortal";
                 CritAutowound = split[5] == "wound";
                 Charge = split[5] == "charge";
+                AntiCharge = split[5] == "anticharge";
+                ChargeAtk = split[5] == "chargeAtk";
             }
 
             if (split.Length > 6)
             {
                 AntiInf = split[6] == "inf";
-                AntiCharge = split[6] == "a";
+                AntiCharge = split[6] == "anticharge";
                 if(Charge == false)
-                Charge = split[6] == "charge";
+                    Charge = split[6] == "charge";
+                ChargeAtk = split[6] == "chargeAtk";
+                ChargeMortal = split[6] == "chargeMortal";
             }
                 
         }
@@ -55,12 +61,26 @@ namespace WarhammerSimulationFull
             Damage result = new Damage();
             result.rend = rend;
 
-            int realAtks = (int) Math.Max(1, attacks - minusAtk);
+            int realAtks = (int) attacks;
+            if (turn == 1 && ChargeAtk)
+                realAtks++;
+
+            realAtks = (int) Math.Max(1, realAtks - minusAtk);
+
+            Boolean recordCritMortal = this.CritMortal;
+
+            if (turn == 1 && ChargeMortal)
+                this.CritMortal = true;
+
 
             double dmg = this.damage;
 
             if (turn == 1 && this.Charge) {
                 dmg = dmg + 1;
+            }
+            if(turn == 1 && this.AntiCharge)
+            {
+                result.rend++;
             }
 
 
@@ -93,22 +113,22 @@ namespace WarhammerSimulationFull
                             result.damage += dmg;
                     }
             }
+            this.CritMortal = recordCritMortal;
             return result;
         }
 
-        public Damage simulateRoundsDmg(Random random, double rounds, int turn)
+        public List<Damage> simulateRoundsDmg(Random random, double rounds, int turn)
         {
-            Damage result = new Damage();
-            result.rend = rend;
+
+            List<Damage> acumulativeResult = new List<Damage>();
 
             for(int i = 0;i < rounds; ++i)
             {
                 Damage minorResult = this.simulateAttackSequence(random, 0, 0, 0, turn);
-                result.damage += minorResult.damage;
-                result.mortal += minorResult.mortal;
+                acumulativeResult.Add(minorResult);
             }
 
-            return result;
+            return acumulativeResult;
         }
 
         

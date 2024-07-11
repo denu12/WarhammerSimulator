@@ -33,7 +33,8 @@ namespace WarhammerSimulationFull
                 u.victoryscore = 0;
                 u.secondaryVictoryScore = 0;
 
-                for (int i = 0; i < 3* second.Count /   4; i++)
+                double N = 2* second.Count / 3;
+                for (int i = 0; i < N; i++)
                 {
                     var tester = second[i];
                     var outcome = u.simulateFight(second[i], 100, 2000);
@@ -41,9 +42,9 @@ namespace WarhammerSimulationFull
                     u.secondaryVictoryScore += outcome.Item2 - outcome.Item4;
                     second[i].secondaryVictoryScore += outcome.Item4 - outcome.Item2;
                 
-                    if (outcome.Item2 - outcome.Item4 > 0.1)
+                    if (outcome.Item2 - outcome.Item4 > 0.2)
                         u.victoryscore++;
-                    else if (outcome.Item4 - outcome.Item2 < 0.1)
+                    else if (outcome.Item4 - outcome.Item2 < 0.2)
                     {
                         u.victoryscore += 0.5;
                     }
@@ -59,7 +60,7 @@ namespace WarhammerSimulationFull
                 if (u.secondaryVictoryScore > 1)
                     Console.WriteLine("how");
 
-                u.victoryscore = u.victoryscore / ((double) 3* second.Count / 4) * 100 ;
+                u.victoryscore = u.victoryscore / (N) * 100 ;
             }
 
 

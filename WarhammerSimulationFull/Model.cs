@@ -36,7 +36,7 @@ namespace WarhammerSimulationFull
         {
             List<Damage> overallDamage = new List<Damage>();
             foreach (Weapon weapon in this.weapons)
-                overallDamage.Add(weapon.simulateRoundsDmg(random, rounds, turn));
+                overallDamage.AddRange(weapon.simulateRoundsDmg(random, rounds, turn));
 
             return overallDamage;
         }

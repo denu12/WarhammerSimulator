@@ -20,6 +20,8 @@ namespace WarhammerSimulationFull
         public int minusWound, minusHit, minusAtk;
         public string faction = "";
         public int wardFirstTurn = 7;
+        public Boolean Etherial=false;
+
 
 
         public Unit() { 
@@ -104,7 +106,7 @@ namespace WarhammerSimulationFull
         }
 
 
-       public double simulateAverageDMG(Random random, double rounds, int turn)
+       public double simulateAverageDMG(Random random, double rounds, int turn, Boolean etherial = false)
         {
             List<Damage> damages = new List<Damage>();
             foreach (Model m in models)
@@ -114,6 +116,7 @@ namespace WarhammerSimulationFull
             }
 
             Unit dummy = new Unit("dummy", 100000, 300, new Model(1, 4, 7, null));
+            dummy.Etherial = etherial;
 
             double result =  dummy.computeDamageTaken(random, damages, 0) / rounds;
             return result;
@@ -128,8 +131,16 @@ namespace WarhammerSimulationFull
                 for (int i = 0; i < d.damage; i++)
                 {
                     int saveroll = random.Next(6) + 1;
-                    if (saveroll < this.models[0].save + d.rend)
-                        damageTaken++;
+                    if (!Etherial)
+                    {
+                        if (saveroll < this.models[0].save + d.rend)
+                            damageTaken++;
+                    }
+                    else
+                    {
+                        if (saveroll < this.models[0].save)
+                            damageTaken++;
+                    }
                 }
 
                 damageTaken += (int) d.mortal;

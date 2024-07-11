@@ -17,6 +17,22 @@ namespace WarhammerSimulationFull
             return u;
         }
 
+        public Unit Hellstriders()
+        {
+            List<string> weapons = new List<string> { "3;3;4;1;1;charge", "2;3;4;0;1" };
+            var u = new Unit("Hellstriders;5;150;3;5;7;", weapons);
+            return u;
+        }
+
+        public Unit SlickbladeSeekers()
+        {
+            List<string> weapons = new List<string> { "3;3;4;1;1;charge", "3;3;4;0;1" };
+            var u = new Unit("SlickbladeSeekers;5;180;4;5;7;", weapons);
+            return u;
+        }
+
+
+
         public Unit Hellflayer()
         {
             List<string> weapons = new List<string> { "6;3;4;1;1", "4;3;4;0;1", "4;4;2;3;2" };
@@ -26,15 +42,8 @@ namespace WarhammerSimulationFull
 
         public Unit Daemonettes()
         {
-            List<string> weapons = new List<string> { "2;3;4;1;1" };
+            List<string> weapons = new List<string> { "2;3;4;1;1;chargeAtk" };
             var u = new Unit("Daemonettes;10;110;1;6;6;", weapons);
-            return u;
-        }
-
-        public Unit DaemonettesCharge()
-        {
-            List<string> weapons = new List<string> { "3;3;4;1;1" };
-            var u = new Unit("Daemonettes (charge);10;110;1;6;6;", weapons);
             return u;
         }
 
@@ -94,6 +103,7 @@ namespace WarhammerSimulationFull
             var u = new Unit("BeastsOfNurgle;1;150;8;5;5;", weapons);
             return u;
         }
+
         public Unit PlagueDrones()
         {
             List<string> weapons = new List<string> { "2;4;3;0;1;mortal", "6;4;3;0;1" };
@@ -129,6 +139,14 @@ namespace WarhammerSimulationFull
             var u = new Unit("PusgoyleBlightlords;2;250;8;4;5;", weapons);
             return u;
         }
+
+        public Unit PusgoyleBlightlordsHalf()
+        {
+            List<string> weapons = new List<string> { "4;3;3;1;1;charge", "6;4;3;0;1" };
+            var u = new Unit("PusgoyleBlightlords (half cost);2;125;8;4;5;", weapons);
+            return u;
+        }
+
 
         public Unit PusgoyleBlightlordsRend()
         {
@@ -194,10 +212,19 @@ namespace WarhammerSimulationFull
             return u;
         }
 
+
+        public Unit MightySkullcrushers()
+        {
+            List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;4;3;1;2" };
+            var u = new Unit("MightySkullcrushers;3;260;5;2;6;", weapons);
+            return u;
+        }
+
+
         public Unit Bloodreavers()
         {
-            List<string> weapons = new List<string> { "2;4;3;0;1"};
-            var u = new Unit("Bloodreavers (no charge);10;100;1;6;7;", weapons);
+            List<string> weapons = new List<string> { "2;4;3;0;1;anticharge"};
+            var u = new Unit("Bloodreavers;10;100;1;6;7;", weapons);
             return u;
         }
 
@@ -345,7 +372,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Slaanesh()
         {
-            List<Unit> l = new List<Unit> { SeekerChariot(), Hellflayer(), Daemonettes(), DaemonettesCharge(), Fiends(), Seekers(), SlaangorFiendbloods(), Painbringers(), Twinsouls(), TwinsoulsCharge() };
+            List<Unit> l = new List<Unit> { SeekerChariot(), Hellflayer(), Daemonettes(), Fiends(), Seekers(), SlickbladeSeekers(), Hellstriders(), SlaangorFiendbloods(), Painbringers(), Twinsouls(), TwinsoulsCharge() };
             foreach (Unit u in l)
                 u.faction = "Slaanesh";
 
@@ -354,7 +381,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Nurgle()
         {
-            List<Unit> l = new List<Unit> { Nurglings(), BeastsOfNurgle(), PlagueDrones(), PlagueBearers(), PlagueBearersMinusOne(), BlightKings(), BlightKingsExtraAtk(), PusgoyleBlightlords(), PusgoyleBlightlordsRend() };
+            List<Unit> l = new List<Unit> { Nurglings(), BeastsOfNurgle(),PlagueDrones(), PlagueBearers(), PlagueBearersMinusOne(), BlightKings(), BlightKingsExtraAtk(), PusgoyleBlightlords(), PusgoyleBlightlordsRend() };
             foreach (Unit u in l)
                 u.faction = "Nurgle";
 
@@ -371,7 +398,7 @@ namespace WarhammerSimulationFull
         }
         private List<Unit> Khorne()
         {
-            List<Unit> l = new List<Unit> { FleshHounds(), Bloodcrushers(), Bloodletters(), Bloodreavers(), Skullreapers(), Wrathmongers(), Bloodwarriors() };
+            List<Unit> l = new List<Unit> { FleshHounds(), Bloodcrushers(), Bloodletters(), Bloodreavers(), Skullreapers(), Wrathmongers(), Bloodwarriors(), MightySkullcrushers() };
             foreach (Unit u in l)
                 u.faction = "Khorne";
 
