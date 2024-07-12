@@ -348,7 +348,7 @@ namespace WarhammerSimulationFull
         public Unit FrostlordOnStonehorn()
         {
             List<string> weapons = new List<string> { "4;4;2;2;2;charge", "6;4;2;2;3;charge", "4;4;2;1;2" };
-            var u = new Unit("Frostlord on Stonehorn (no wound ignore);1;360;15;4;7;", weapons);
+            var u = new Unit("Frostlord on Stonehorn (no wnd ign.);1;360;15;4;7;", weapons);
             return u;
         }
 

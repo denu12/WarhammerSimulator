@@ -14,11 +14,6 @@ namespace WarhammerSimulationFull
             foreach (Unit u in first)
                 foreach (Unit v in second)
                 {
-
-                    if (u.name == "Warstomper (+4 atk, +1 save)")
-                    {
-                        string s;
-                    } 
                     if (u.name != v.name)
                     {
                         var outcome = u.simulateFight(v, 100, 1000);
@@ -71,7 +66,7 @@ namespace WarhammerSimulationFull
             }
 
 
-            var output = first.OrderByDescending(x => (double) (x.victoryscore) + x.secondaryVictoryScore).ToList();
+            var output = first.OrderByDescending(x => (double) (x.victoryscore)).ToList();
 
             for(int t = 0; t < output.Count; t++)
                 Console.WriteLine("{0,-5} {1,-45}, {2, 10}", t + 1, output[t].name, (int) output[t].victoryscore);

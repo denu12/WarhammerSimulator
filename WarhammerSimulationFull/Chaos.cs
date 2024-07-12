@@ -286,7 +286,7 @@ namespace WarhammerSimulationFull
         public Unit ChosenWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;2;mortal" };
-            var u = new Unit("Chosen (nurgle, ward);5;250;3;3;5;", weapons);
+            var u = new Unit("Chosen (nurgle, 5+ward);5;250;3;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -311,7 +311,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosKnightsWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;5;3;0;1" };
-            var u = new Unit("Chaos Knights (nurgle, ward);5;250;4;3;5;", weapons);
+            var u = new Unit("Chaos Knights (nurgle, 5+ward);5;250;4;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -319,7 +319,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosWarriorsWard()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1;wound" };
-            var u = new Unit("Chaos Warriors (nurgle, ward);10;200;2;3;5;", weapons);
+            var u = new Unit("Chaos Warriors (nurgle, 5+ward);10;200;2;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }

@@ -546,7 +546,7 @@ namespace WarhammerSimulationFull
         public Unit SaurusGuardWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1" };
-            var u = new Unit("Saurus Guard (ward);5;110;2;3;5;", weapons);
+            var u = new Unit("Saurus Guard (5+ward);5;110;2;3;5;", weapons);
             return u;
         }
 
