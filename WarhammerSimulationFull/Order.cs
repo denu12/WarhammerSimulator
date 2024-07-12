@@ -312,7 +312,7 @@ namespace WarhammerSimulationFull
         public Unit TreeRevenants()
         {
             List<string> weapons = new List<string> { "2;3;4;1;1" };
-            var u = new Unit("TreeRevenants;5;110;2;5;7;", weapons);
+            var u = new Unit("Tree Revenants;5;110;2;5;7;", weapons);
             return u;
         }
 
@@ -321,7 +321,7 @@ namespace WarhammerSimulationFull
         public Unit SpiteRevenants()
         {
             List<string> weapons = new List<string> { "3;3;4;0;1;mortal" };
-            var u = new Unit("SpiteRevenants;5;110;2;5;7;", weapons);
+            var u = new Unit("Spite Revenants;5;110;2;5;7;", weapons);
             return u;
         }
 
@@ -329,14 +329,14 @@ namespace WarhammerSimulationFull
         public Unit SistersOfSlaughter()
         {
             List<string> weapons = new List<string> { "3;3;4;1;1" };
-            var u = new Unit("SistersOfSlaughter (knives);10;130;1;6;6;", weapons);
+            var u = new Unit("Sisters Of Slaughter (knives);10;130;1;6;6;", weapons);
             return u;
         }
 
         public Unit SistersOfSlaughterBuckler()
         {
             List<string> weapons = new List<string> { "2;3;4;1;1" };
-            var u = new Unit("SistersOfSlaughter (buckler);10;110;1;5;6;", weapons);
+            var u = new Unit("Sisters Of Slaughter (buckler);10;110;1;5;6;", weapons);
             u.minusHit = 1;
             u.MortalKickback = true;
             return u;
@@ -347,7 +347,7 @@ namespace WarhammerSimulationFull
         public Unit WitchElves()
         {
             List<string> weapons = new List<string> { "3;3;4;0;1;wound;chargeAtk" };
-            var u = new Unit("WitchAelves (pair);10;110;1;6;6;", weapons);
+            var u = new Unit("Witch Aelves (pair);10;110;1;6;6;", weapons);
             u.MortalKickback = true;
             return u;
         }
@@ -355,7 +355,7 @@ namespace WarhammerSimulationFull
         public Unit WitchElvesBuckler()
         {
             List<string> weapons = new List<string> { "2;3;4;0;1;wound" };
-            var u = new Unit("WitchAelves (buckler);10;110;1;5;6;", weapons);
+            var u = new Unit("Witch Aelves (buckler);10;110;1;5;6;", weapons);
             return u;
         }
 
@@ -363,42 +363,42 @@ namespace WarhammerSimulationFull
         public Unit KhineraiLifetakers()
         {
             List<string> weapons = new List<string> { "2;3;4;1;1;wound" };
-            var u = new Unit("KhineraiLifetakers;5;100;2;5;6;", weapons);
+            var u = new Unit("Khinerai Lifetakers;5;100;2;5;6;", weapons);
             return u;
         }
 
         public Unit BloodSisters()
         {
             List<string> weapons = new List<string> { "2;3;4;1;2;mortal" };
-            var u = new Unit("BloodSisters;5;140;2;5;6;", weapons);
+            var u = new Unit("Blood Sisters;5;140;2;5;6;", weapons);
             return u;
         }
 
         public Unit BloodSistersPlusOne()
         {
             List<string> weapons = new List<string> { "3;3;4;1;2;mortal" };
-            var u = new Unit("BloodSisters (+1 atk);5;140;2;5;6;", weapons);
+            var u = new Unit("Blood Sisters (+1 atk);5;140;2;5;6;", weapons);
             return u;
         }
 
         public Unit NamartiThralls()
         {
             List<string> weapons = new List<string> { "2;3;4;2;1;" };
-            var u = new Unit("NamartiThralls;10;120;1;5;7;", weapons);
+            var u = new Unit("Namarti Thralls;10;120;1;5;7;", weapons);
             return u;
         }
 
         public Unit MorsarrGuard()
         {
             List<string> weapons = new List<string> { "2;3;4;2;1;charge", "3;4;3;1;2" };
-            var u = new Unit("MorsarrGuard;3;170;4;4;7;", weapons);
+            var u = new Unit("Morsarr Guard;3;170;4;4;7;", weapons);
             return u;
         }
 
         public Unit IshlaenGuard()
         {
             List<string> weapons = new List<string> { "2;3;4;2;1", "3;4;3;1;2" };
-            var u = new Unit("IshlaenGuard (-1 atk);3;170;4;4;7;", weapons);
+            var u = new Unit("Ishlaen Guard (-1 atk);3;170;4;4;7;", weapons);
             u.wardFirstTurn = 5;
             u.minusAtk = 1;
             return u;
@@ -408,7 +408,7 @@ namespace WarhammerSimulationFull
         public Unit VanariWardens()
         {
             List<string> weapons = new List<string> { "2;3;4;0;1;mortal;anticharge" };
-            var u = new Unit("VanariWardens (-1 hit);10;140;1;4;7;", weapons);
+            var u = new Unit("Vanari Wardens (-1 hit);10;140;1;4;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -416,7 +416,7 @@ namespace WarhammerSimulationFull
         public Unit VanariBladelords()
         {
             List<string> weapons = new List<string> { "3;3;4;2;1;mortal" };
-            var u = new Unit("VanariBladelords (-1 hit);5;140;2;4;7;", weapons);
+            var u = new Unit("Vanari Bladelords (-1 hit);5;140;2;4;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -424,7 +424,7 @@ namespace WarhammerSimulationFull
         public Unit VanariDawnriders()
         {
             List<string> weapons = new List<string> { "2;3;4;1;1;mortal;charge" };
-            var u = new Unit("VanariDawnriders (-1 hit);5;210;3;3;7;", weapons);
+            var u = new Unit("Vanari Dawnriders (-1 hit);5;210;3;3;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -433,35 +433,35 @@ namespace WarhammerSimulationFull
         public Unit AlarithStoneGuard ()
         {
             List<string> weapons = new List<string> { "2;3;3;1;2;" };
-            var u = new Unit("AlarithStoneGuard;5;130;2;4;7;", weapons);
+            var u = new Unit("Alarith StoneGuard;5;130;2;4;7;", weapons);
             return u;
         }
 
         public Unit AlarithStoneGuardWared()
         {
             List<string> weapons = new List<string> { "2;3;3;1;2;" };
-            var u = new Unit("AlarithStoneGuard (ward);5;130;2;4;5;", weapons);
+            var u = new Unit("Alarith StoneGuard (ward);5;130;2;4;5;", weapons);
             return u;
         }
 
         public Unit VulkiteBerzerkers()
         {
             List<string> weapons = new List<string> { "2;4;3;1;1;chargeAtk" };
-            var u = new Unit("VulkiteBerzerkers;10;140;2;6;6;", weapons);
+            var u = new Unit("Vulkite Berzerkers;10;140;2;6;6;", weapons);
             return u;   
         }
 
         public Unit HearthguardBerzerkers()
         {
             List<string> weapons = new List<string> { "2;3;3;1;2;mortal" };
-            var u = new Unit("HearthguardBerzerkers (poleaxe);5;140;2;6;5;", weapons);
+            var u = new Unit("Hearthguard Berzerkers (poleaxe);5;140;2;6;5;", weapons);
             return u;
         }
 
         public Unit HearthguardBerzerkersAxe()
         {
             List<string> weapons = new List<string> { "3;3;3;1;2" };
-            var u = new Unit("HearthguardBerzerkers (axe);5;120;2;6;5;", weapons);
+            var u = new Unit("Hearthguard Berzerkers (axe);5;120;2;6;5;", weapons);
             return u;
         }
 
@@ -469,28 +469,28 @@ namespace WarhammerSimulationFull
         public Unit Saurus()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1" };
-            var u = new Unit("SaurusWarriors;10;170;2;4;7;", weapons);
+            var u = new Unit("Saurus Warriors;10;170;2;4;7;", weapons);
             return u;
         }
 
         public Unit AggradonLancers()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "3;4;3;2;2" };
-            var u = new Unit("AggradonLancers;3;210;5;4;7;", weapons);
+            var u = new Unit("Aggradon Lancers;3;210;5;4;7;", weapons);
             return u;
         }
 
         public Unit AggradonLancersPlusOne()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "4;4;3;2;2" };
-            var u = new Unit("AggradonLancers (+1 rage);3;210;5;4;7;", weapons);
+            var u = new Unit("Aggradon Lancers (+1 rage);3;210;5;4;7;", weapons);
             return u;
         }
 
         public Unit AggradonLancersPlusTwo()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "5;4;3;2;2" };
-            var u = new Unit("AggradonLancers (+2 rage);3;210;5;4;7;", weapons);
+            var u = new Unit("Aggradon Lancers (+2 rage);3;210;5;4;7;", weapons);
             return u;
         }
 
@@ -520,33 +520,33 @@ namespace WarhammerSimulationFull
         public Unit RaptadonChargers()
         {
             List<string> weapons = new List<string> { "3;4;4;1;1;charge", "3;4;3;1;1" };
-            var u = new Unit("RaptadonChargers;5;140;3;5;7;", weapons);
+            var u = new Unit("Raptadon Chargers;5;140;3;5;7;", weapons);
             return u;
         }
 
         public Unit RaptadonChargersPlusOne()
         {
             List<string> weapons = new List<string> { "3;3;4;1;1;charge", "3;4;3;1;1" };
-            var u = new Unit("RaptadonChargers (+1 hit);5;140;3;5;7;", weapons);
+            var u = new Unit("Raptadon Chargers (+1 hit);5;140;3;5;7;", weapons);
             return u;
         }
         public Unit SaurusPlusSave()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1" };
-            var u = new Unit("SaurusWarriors (+1 save);10;170;2;3;7;", weapons);
+            var u = new Unit("Saurus Warriors (+1 save);10;170;2;3;7;", weapons);
             return u;
         }
         public Unit SaurusGuard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1" };
-            var u = new Unit("SaurusGuard;5;110;2;3;7;", weapons);
+            var u = new Unit("Saurus Guard;5;110;2;3;7;", weapons);
             return u;
         }
 
         public Unit SaurusGuardWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1" };
-            var u = new Unit("SaurusGuard (ward);5;110;2;3;5;", weapons);
+            var u = new Unit("Saurus Guard (ward);5;110;2;3;5;", weapons);
             return u;
         }
 
@@ -554,14 +554,6 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "1;4;5;0;1" };
             var u = new Unit("Skinks;10;100;1;6;7;", weapons);
-
-            return u;
-        }
-
-        public Unit SkinksHalf()
-        {
-            List<string> weapons = new List<string> { "1;4;5;0;1" };
-            var u = new Unit("Skinks (half point cost);10;50;1;6;7;", weapons);
 
             return u;
         }

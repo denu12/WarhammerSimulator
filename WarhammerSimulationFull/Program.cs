@@ -34,10 +34,10 @@ foreach (List<Unit> units in orderUnits)
      allUnits.AddRange(units);
 
 foreach (List<Unit> units in chaosUnits)
-    ; //  allUnits.AddRange(units);
+      allUnits.AddRange(units);
 
 foreach (List<Unit> units in deathUnits)
-    ; // allUnits.AddRange(units);
+     allUnits.AddRange(units);
 
 
 foreach (List<Unit> units in destructionUnits)
@@ -79,9 +79,12 @@ static void PrintResults(List<List<Unit>> unitList)
     foreach (List<Unit> units in unitList)
     {
         Console.WriteLine(units[0].faction + ":");
-        var output = units.OrderByDescending(x => x.victoryscore + x.secondaryVictoryScore).ToList();
+        Console.WriteLine("---------------------------------------------------------");
+        
+
+        var output = units.OrderByDescending(x => x.victoryscore).ToList();
         foreach (Unit u in output)
-            Console.WriteLine("{0,-40} {1,30}", u.name + ";", (int)u.victoryscore);
+            Console.WriteLine("{0,-35} {1,15}", u.name, (int)u.victoryscore);
         Console.WriteLine(" ");
     }
 }

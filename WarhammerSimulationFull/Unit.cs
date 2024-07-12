@@ -255,6 +255,9 @@ namespace WarhammerSimulationFull
 
 
                     t++;
+
+                    if(t > 8)
+                        break;
                 }
                 thisCount += thisUnit.pointsPerModel* thisUnit.models.Count;
                 enemyCount += enemyUnit.pointsPerModel*enemyUnit.models.Count;

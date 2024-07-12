@@ -13,7 +13,7 @@ namespace WarhammerSimulationFull
         public Unit SeekerChariot()
         {
             List<string> weapons = new List<string> { "4;3;4;1;1", "4;3;4;0;1"};
-            var u =  new Unit("SeekerChaoriot;1;120;6;4;6;", weapons);
+            var u =  new Unit("Seeker Chaoriot;1;120;6;4;6;", weapons);
             return u;
         }
 
@@ -27,7 +27,7 @@ namespace WarhammerSimulationFull
         public Unit SlickbladeSeekers()
         {
             List<string> weapons = new List<string> { "3;3;4;1;1;charge", "3;3;4;0;1" };
-            var u = new Unit("SlickbladeSeekers;5;180;4;5;7;", weapons);
+            var u = new Unit("Slickblade Seekers;5;180;4;5;7;", weapons);
             return u;
         }
 
@@ -64,7 +64,7 @@ namespace WarhammerSimulationFull
         public Unit SlaangorFiendbloods()
         {
             List<string> weapons = new List<string> { "4;4;3;1;2" };
-            var u = new Unit("SlaangorFiendbloods;3;140;3;5;7;", weapons);
+            var u = new Unit("Slaangor Fiendbloods;3;140;3;5;7;", weapons);
             return u;
         }
 
@@ -100,28 +100,28 @@ namespace WarhammerSimulationFull
         public Unit BeastsOfNurgle()
         {
             List<string> weapons = new List<string> { "5;4;3;1;2" };
-            var u = new Unit("BeastsOfNurgle;1;150;8;5;5;", weapons);
+            var u = new Unit("Beasts of Nurgle;1;150;8;5;5;", weapons);
             return u;
         }
 
         public Unit PlagueDrones()
         {
             List<string> weapons = new List<string> { "2;4;3;0;1;mortal", "6;4;3;0;1" };
-            var u = new Unit("PlagueDrones;3;180;5;5;5;", weapons);
+            var u = new Unit("Plague Drones;3;180;5;5;5;", weapons);
             return u;
         }
 
         public Unit PlagueBearers()
         {
             List<string> weapons = new List<string> { "1;4;3;0;1;mortal"};
-            var u = new Unit("PlagueBearers;10;140;2;6;5;", weapons);
+            var u = new Unit("Plague Bearers;10;140;2;6;5;", weapons);
             return u;
         }
 
         public Unit PlagueBearersMinusOne()
         {
             List<string> weapons = new List<string> { "1;4;3;0;1;mortal" };
-            var u = new Unit("PlagueBearers (-1 toHit);10;140;2;6;5;", weapons);
+            var u = new Unit("Plague Bearers (-1 toHit);10;140;2;6;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -129,36 +129,28 @@ namespace WarhammerSimulationFull
         public Unit BlightKings()
         {
             List<string> weapons = new List<string> { "4;3;3;1;1" };
-            var u = new Unit("BlightKings;5;200;3;3;5;", weapons);
+            var u = new Unit("Blightkings;5;200;3;3;5;", weapons);
             return u;
         }
 
         public Unit PusgoyleBlightlords()
         {
             List<string> weapons = new List<string> { "4;3;3;1;1;charge", "6;4;3;0;1"};
-            var u = new Unit("PusgoyleBlightlords;2;250;8;4;5;", weapons);
+            var u = new Unit("Pusgoyle Blightlords;2;250;8;4;5;", weapons);
             return u;
         }
-
-        public Unit PusgoyleBlightlordsHalf()
-        {
-            List<string> weapons = new List<string> { "4;3;3;1;1;charge", "6;4;3;0;1" };
-            var u = new Unit("PusgoyleBlightlords (half cost);2;125;8;4;5;", weapons);
-            return u;
-        }
-
 
         public Unit PusgoyleBlightlordsRend()
         {
             List<string> weapons = new List<string> { "4;3;3;2;1;charge", "6;4;3;0;1" };
-            var u = new Unit("PusgoyleBlightlords (+1 rend);2;250;8;4;5;", weapons);
+            var u = new Unit("Pusgoyle Blightlords (+1 rend);2;250;8;4;5;", weapons);
             return u;
         }
 
         public Unit BlightKingsExtraAtk()
         {
             List<string> weapons = new List<string> { "5;3;3;1;1" };
-            var u = new Unit("BlightKings (+1 atk);5;200;3;3;5;", weapons);
+            var u = new Unit("Blightkings (+1 atk);5;200;3;3;5;", weapons);
             return u;
         }
 
@@ -180,21 +172,28 @@ namespace WarhammerSimulationFull
         public Unit TzaangorEnlightened()
         {
             List<string> weapons = new List<string> { "2;4;3;1;2" };
-            var u = new Unit("TzaangorEnlightened;3;90;3;4;7;", weapons);
+            var u = new Unit("Tzaangor Enlightened;3;90;3;4;7;", weapons);
             return u;
         }
 
         public Unit TzaangorEnlightenedOnDisk()
         {
             List<string> weapons = new List<string> { "2;4;3;1;2", "2;4;3;1;2" };
-            var u = new Unit("TzaangorEnlightenedOnDisk;3;170;4;4;7;", weapons);
+            var u = new Unit("Tzaangor Enlightened on Disk;3;170;4;4;7;", weapons);
             return u;
         }
 
         public Unit FleshHounds()
         {
             List<string> weapons = new List<string> { "4;4;3;0;1" };
-            var u = new Unit("FleshHounds;5;110;2;5;6;", weapons);
+            var u = new Unit("Flesh Hounds;5;110;2;5;6;", weapons);
+            return u;
+        }
+
+        public Unit BloodthirsterRage()
+        {
+            List<string> weapons = new List<string> { "5;3;2;3;5" };
+            var u = new Unit("Bloodthirster (rage);1;470;16;4;5;", weapons);
             return u;
         }
 
@@ -216,7 +215,7 @@ namespace WarhammerSimulationFull
         public Unit MightySkullcrushers()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;4;3;1;2" };
-            var u = new Unit("MightySkullcrushers;3;260;5;2;6;", weapons);
+            var u = new Unit("Mighty Skullcrushers;3;260;5;2;6;", weapons);
             return u;
         }
 
@@ -263,7 +262,7 @@ namespace WarhammerSimulationFull
         public Unit OgroidTheridons()
         {
             List<string> weapons = new List<string> { "4;4;2;2;2"};
-            var u = new Unit("OgroidTheridons (nurgle);3;200;5;4;7;", weapons);
+            var u = new Unit("Ogroid Theridons (nurgle);3;200;5;4;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -271,7 +270,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosChariot()
         {
             List<string> weapons = new List<string> { "3;4;3;1;2", "2;4;4;0;1", "4;5;3;0;1" };
-            var u = new Unit("ChaosChariot (nurgle);1;110;7;4;7;", weapons);
+            var u = new Unit("Chaos Chariot (nurgle);1;110;7;4;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -296,7 +295,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosWarriors()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1;wound" };
-            var u = new Unit("ChaosWarriors (nurgle);10;200;2;3;7;", weapons);
+            var u = new Unit("Chaos Warriors (nurgle);10;200;2;3;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -304,7 +303,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosKnights()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;5;3;0;1" };
-            var u = new Unit("ChaosKnights (nurgle);5;250;4;3;7;", weapons);
+            var u = new Unit("Chaos Knights (nurgle);5;250;4;3;7;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -312,7 +311,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosKnightsWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;5;3;0;1" };
-            var u = new Unit("ChaosKnights (nurgle, ward);5;250;4;3;5;", weapons);
+            var u = new Unit("Chaos Knights (nurgle, ward);5;250;4;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -320,7 +319,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosWarriorsWard()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1;wound" };
-            var u = new Unit("ChaosWarriors (nurgle, ward);10;200;2;3;5;", weapons);
+            var u = new Unit("Chaos Warriors (nurgle, ward);10;200;2;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -328,7 +327,7 @@ namespace WarhammerSimulationFull
         public Unit DarkOathMarauders()
         {
             List<string> weapons = new List<string> { "2;4;3;0;1" };
-            var u = new Unit("DarkOathMarauders;10;100;1;5;7;", weapons);
+            var u = new Unit("Darkoath Marauders;10;100;1;5;7;", weapons);
             return u;
         }
 
@@ -337,14 +336,14 @@ namespace WarhammerSimulationFull
         public Unit DarkOathSavages()
         {
             List<string> weapons = new List<string> { "2;4;3;0;1;mortal" };
-            var u = new Unit("DarkOathSavages;10;130;1;5;7;", weapons);
+            var u = new Unit("Darkoath Savages;10;130;1;5;7;", weapons);
             return u;
         }
 
         public Unit PlagueMonks()
         {
             List<string> weapons = new List<string> { "2;4;5;0;1" };
-            var u = new Unit("PlagueMonks;20;140;1;6;7;", weapons);
+            var u = new Unit("Plague Monks;20;140;1;6;7;", weapons);
             return u;
         }
 
@@ -364,7 +363,7 @@ namespace WarhammerSimulationFull
         public Unit RatOgors()
         {
             List<string> weapons = new List<string> { "6;4;3;1;2" };
-            var u = new Unit("RatOgors (+1 atk);3;170;4;5;7;", weapons);
+            var u = new Unit("Rat Ogors (+1 atk);3;170;4;5;7;", weapons);
             return u;
         }
 
@@ -398,7 +397,7 @@ namespace WarhammerSimulationFull
         }
         private List<Unit> Khorne()
         {
-            List<Unit> l = new List<Unit> { FleshHounds(), Bloodcrushers(), Bloodletters(), Bloodreavers(), Skullreapers(), Wrathmongers(), Bloodwarriors(), MightySkullcrushers() };
+            List<Unit> l = new List<Unit> { FleshHounds(), BloodthirsterRage(), Bloodcrushers(), Bloodletters(), Bloodreavers(), Skullreapers(), Wrathmongers(), Bloodwarriors(), MightySkullcrushers() };
             foreach (Unit u in l)
                 u.faction = "Khorne";
 
@@ -409,7 +408,7 @@ namespace WarhammerSimulationFull
         {
             List<Unit> l = new List<Unit> { Varanguard(), ChaosKnights(), ChaosKnightsWard(), OgroidTheridons(), ChaosChariot(), Chosen(), ChosenWard(), ChaosWarriors(), ChaosWarriorsWard(), DarkOathMarauders(), DarkOathSavages() };
             foreach (Unit u in l)
-                u.faction = "Slaves";
+                u.faction = "Slaves to Darkness";
 
             return l;
         }
