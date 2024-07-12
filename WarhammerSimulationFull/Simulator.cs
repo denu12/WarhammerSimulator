@@ -67,7 +67,7 @@ namespace WarhammerSimulationFull
             var output = first.OrderByDescending(x => (double) (x.victoryscore) + x.secondaryVictoryScore).ToList();
 
             for(int t = 0; t < output.Count; t++)
-                Console.WriteLine("{0,-5} {1,-30}", t + 1, output[t].name);
+                Console.WriteLine("{0,-5} {1,-30}, {2, 10}", t + 1, output[t].name, output[t].victoryscore);
 
         }
     }

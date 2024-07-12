@@ -11,8 +11,9 @@ Simulator sim = new Simulator();
 Order order = new Order();
 Chaos chaos = new Chaos();
 Death death = new Death();
+Destruction destruction = new Destruction();
 Unit unit = chaos.Twinsouls();
-Unit unit2 = death.GraveGuard();
+Unit unit2 = order.Vanquishers();
 
 Console.WriteLine(unit2.simulateAverageDMG(random, 1000, 0));
 
@@ -26,18 +27,21 @@ Console.WriteLine(unit.simulateFight(unit2, 100, 1000));
 List<List<Unit>> orderUnits = order.OrderList();
 List<List<Unit>> chaosUnits = chaos.ChaosList();
 List<List<Unit>> deathUnits = death.DeathList();
+List<List<Unit>> destructionUnits = destruction.DestructionList();
 
 List<Unit> allUnits = new List<Unit>();
 foreach (List<Unit> units in orderUnits)
-    allUnits.AddRange(units);
+     allUnits.AddRange(units);
 
 foreach (List<Unit> units in chaosUnits)
-    allUnits.AddRange(units);
+    ; //  allUnits.AddRange(units);
 
-foreach(List<Unit> units in deathUnits)
-    allUnits.AddRange(units);
+foreach (List<Unit> units in deathUnits)
+    ; // allUnits.AddRange(units);
 
 
+foreach (List<Unit> units in destructionUnits)
+     allUnits.AddRange(units);
 
 
 Console.WriteLine(" ");
@@ -62,6 +66,8 @@ PrintResults(orderUnits);
 PrintResults(chaosUnits);
 
 PrintResults(deathUnits);
+
+PrintResults(destructionUnits);
 
 
 

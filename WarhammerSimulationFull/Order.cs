@@ -21,21 +21,21 @@ namespace WarhammerSimulationFull
         public Unit FreeguildCavaliers()
         {
             List<string> weapons = new List<string> { "3;4;4;1;1;charge", "2;5;3;0;1" };
-            var u = new Unit("FreeguildCavaliers;5;170;3;3;7;", weapons);
+            var u = new Unit("Freeguild Cavaliers;5;170;3;3;7;", weapons);
             return u;
         }
 
         public Unit DrakespawnChariot()
         {
             List<string> weapons = new List<string> { "3;3;4;1;1;charge", "6;3;3;1;1" };
-            var u = new Unit("DrakespawnChariot;1;120;8;4;7;", weapons);
+            var u = new Unit("Drakespawn Chariot;1;120;8;4;7;", weapons);
             return u;
         }
 
         public Unit DrakespawnKnights()
         {
             List<string> weapons = new List<string> { "2;3;4;1;1;charge", "4;4;3;1;1" };
-            var u = new Unit("DrakespawnKnights;5;180;3;3;7;", weapons);
+            var u = new Unit("Drakespawn Knights;5;180;3;3;7;", weapons);
             return u;
         }
 
@@ -63,7 +63,7 @@ namespace WarhammerSimulationFull
         public Unit HammerersWithWard()
         {
             List<string> weapons = new List<string> { "2;4;3;1;2" };
-            var u = new Unit("Hammerers (ward);10;150;1;3;5;", weapons);
+            var u = new Unit("Hammerers (5+ward);10;150;1;3;5;", weapons);
             return u;
         }
 
@@ -78,7 +78,7 @@ namespace WarhammerSimulationFull
         public Unit IronbreakersWithWard()
         {
             List<string> weapons = new List<string> { "2;4;3;0;1" };
-            var u = new Unit("Ironbreakers (ward);10;130;1;3;4;", weapons);
+            var u = new Unit("Ironbreakers (4+ward);10;130;1;3;4;", weapons);
             return u;
         }
 
@@ -130,6 +130,7 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "3;3;2;1;2;mortal", "3;4;2;2;2" };
             var u = new Unit("Concussors;2;250;5;3;7;", weapons);
+            u.MortalKickback = true;
             return u;
         }
 
@@ -137,6 +138,7 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "4;3;3;2;2;", "3;4;2;2;2" };
             var u = new Unit("Desolators;2;230;5;3;7;", weapons);
+            u.MortalKickback = true;
             return u;
         }
 
@@ -144,6 +146,32 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "3;3;3;1;2;charge", "3;4;2;2;2" };
             var u = new Unit("Fulminators;2;230;5;3;7;", weapons);
+            u.MortalKickback = true;
+            return u;
+        }
+
+        public Unit StormdrakeGuardLance()
+        {
+            List<string> weapons = new List<string> { "3;3;3;2;1;charge", "4;4;2;2;2" };
+            var u = new Unit("Stormdrake Guard (lances);2;360;9;3;7;", weapons);
+            u.MortalKickback = true;
+            return u;
+        }
+
+
+        public Unit StormdrakeGuardSword()
+        {
+            List<string> weapons = new List<string> { "6;3;3;1;1", "4;4;2;2;2" };
+            var u = new Unit("Stormdrake Guard (swords);2;360;9;3;7;", weapons);
+            u.MortalKickback = true;
+            return u;
+        }
+
+
+        public Unit StormstrikeChariot()
+        {
+            List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;3;2;2;1", "6;4;3;1;1" };
+            var u = new Unit("Stormstrike Chariot;1;170;10;3;7;", weapons);
             return u;
         }
 
@@ -157,7 +185,7 @@ namespace WarhammerSimulationFull
         public Unit Praetors()
         {
             List<string> weapons = new List<string> { "3;3;3;1;2" };
-            var u = new Unit("Praetors (ward);3;150;3;3;5;", weapons);
+            var u = new Unit("Praetors (5+ward);3;150;3;3;5;", weapons);
             return u;
         }
 
@@ -208,42 +236,42 @@ namespace WarhammerSimulationFull
         public Unit RevenantSeekers()
         {
             List<string> weapons = new List<string> { "3;3;4;1;1;mortal", "3;4;3;1;1;charge" };
-            var u = new Unit("RevenantSeekers (no healing);3;200;5;4;7;", weapons);
+            var u = new Unit("Revenant Seekers (no healing);3;200;5;4;7;", weapons);
             return u;
         }
 
         public Unit SpiteriderLancers()
         {
             List<string> weapons = new List<string> { "3;3;4;1;1;charge", "3;4;3;1;1;charge" };
-            var u = new Unit("SpiteriderLancers (no healing);3;210;5;4;7;", weapons);
+            var u = new Unit("Spiterider Lancers (no healing);3;210;5;4;7;", weapons);
             return u;
         }
 
         public Unit KurnothSwords()
         {
             List<string> weapons = new List<string> { "4;3;3;1;2;mortal" };
-            var u = new Unit("KurnothSwords;3;220;5;4;7;", weapons);
+            var u = new Unit("Kurnoth Swords;3;220;5;4;7;", weapons);
             return u;
         }
 
         public Unit KurnothSwordsWard()
         {
             List<string> weapons = new List<string> { "4;3;3;1;2;mortal" };
-            var u = new Unit("KurnothSwords (ward);3;220;5;4;6;", weapons);
+            var u = new Unit("Kurnoth Swords (ward);3;220;5;4;6;", weapons);
             return u;
         }
 
         public Unit KurnothScythes()
         {
             List<string> weapons = new List<string> { "3;3;3;1;3;anticharge" };
-            var u = new Unit("KurnothScythes;3;200;5;4;7;", weapons);
+            var u = new Unit("Kurnoth Scythes;3;200;5;4;7;", weapons);
             return u;
         }
 
         public Unit KurnothScythesWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;3;anticharge" };
-            var u = new Unit("KurnothScythes (ward);3;200;5;4;6;", weapons);
+            var u = new Unit("Kurnoth Scythes (ward);3;200;5;4;6;", weapons);
             return u;
         }
 
@@ -305,7 +333,14 @@ namespace WarhammerSimulationFull
             return u;
         }
 
-       
+        public Unit SistersOfSlaughterBuckler()
+        {
+            List<string> weapons = new List<string> { "2;3;4;1;1" };
+            var u = new Unit("SistersOfSlaughter (buckler);10;110;1;5;6;", weapons);
+            u.minusHit = 1;
+            u.MortalKickback = true;
+            return u;
+        }
 
 
 
@@ -313,6 +348,14 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "3;3;4;0;1;wound;chargeAtk" };
             var u = new Unit("WitchAelves (pair);10;110;1;6;6;", weapons);
+            u.MortalKickback = true;
+            return u;
+        }
+
+        public Unit WitchElvesBuckler()
+        {
+            List<string> weapons = new List<string> { "2;3;4;0;1;wound" };
+            var u = new Unit("WitchAelves (buckler);10;110;1;5;6;", weapons);
             return u;
         }
 
@@ -562,7 +605,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> DoK()
         {
-            List<Unit> l = new List<Unit> { SistersOfSlaughter(), WitchElves(), BloodSisters(), BloodSistersPlusOne(), KhineraiLifetakers() };
+            List<Unit> l = new List<Unit> { SistersOfSlaughter(), WitchElves(), WitchElvesBuckler(), BloodSisters(), BloodSistersPlusOne(), KhineraiLifetakers(), SistersOfSlaughterBuckler() };
             foreach (Unit u in l)
                 u.faction = "DoK";
 
@@ -590,7 +633,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Stormcast()
         {
-            List<Unit> l = new List<Unit> { Vanquishers(), Vindictors(), Annihilators(), AnnihilatorsHammers(), Fulminators(), Prosecutors(), Grypthounds(), Concussors(), Desolators(), Praetors(), Reclusians(), Liberators() };
+            List<Unit> l = new List<Unit> { Vanquishers(), Vindictors(), Annihilators(), AnnihilatorsHammers(), StormdrakeGuardLance(), StormdrakeGuardSword(), StormstrikeChariot(),  Fulminators(), Prosecutors(), Grypthounds(), Concussors(), Desolators(), Praetors(), Reclusians(), Liberators() };
             foreach (Unit u in l)
                 u.faction = "Stormcast";
 

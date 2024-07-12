@@ -22,7 +22,7 @@ namespace WarhammerSimulationFull
         public int wardFirstTurn = 7;
         public Boolean Etherial=false;
         public Boolean MortalKickback =false;
-
+        public int MortalKickBackNumber = 0;
 
 
         public Unit() { 
@@ -125,26 +125,31 @@ namespace WarhammerSimulationFull
 
         public double computeDamageTaken(Random random, List<Damage> damages, int turn)
         {
-            int damageTaken = 0;
+            MortalKickBackNumber = 0; 
+            double damageTaken = 0;
             foreach (Damage d in damages)
             {
 
-                for (int i = 0; i < d.damage; i++)
+                for (int i = 0; i < d.damageHits; i++)
                 {
                     int saveroll = random.Next(6) + 1;
+
+                    if (saveroll == 6 && this.MortalKickback)
+                        MortalKickBackNumber++;
+
                     if (!Etherial)
                     {
                         if (saveroll < this.models[0].save + d.rend)
-                            damageTaken++;
+                            damageTaken += d.damage;
                     }
                     else
                     {
                         if (saveroll < this.models[0].save)
-                            damageTaken++;
+                            damageTaken += d.damage;
                     }
                 }
 
-                damageTaken += (int) d.mortal;
+                damageTaken += d.mortal;
             }
 
             double finaldamagetaken = 0;
@@ -215,6 +220,9 @@ namespace WarhammerSimulationFull
                 enemyUnit.minusHit = enemy.minusHit;
                 enemyUnit.minusWound = enemy.minusWound;
                 enemyUnit.minusAtk = enemy.minusAtk;
+                enemyUnit.MortalKickback = enemy.MortalKickback;
+                enemyUnit.wardFirstTurn = enemy.wardFirstTurn;
+                enemyUnit.Etherial = enemy.Etherial;
 
                 while (enemyUnit.totalPoints + enemy.pointsPerModel < points)
                 {
@@ -231,6 +239,21 @@ namespace WarhammerSimulationFull
 
                     thisUnit.processDmg(random, enemyDMG, t);
                     enemyUnit.processDmg(random, personalDmg, t);
+
+                    List<Damage> enemyMortalKickback = new List<Damage> { new Damage(enemyUnit.MortalKickBackNumber) };
+                    List<Damage> personalMortalKickback = new List<Damage> { new Damage(thisUnit.MortalKickBackNumber) };
+
+                    int k;
+
+                    if (enemyUnit.MortalKickBackNumber > 0)
+                        k = 0;
+
+                    if (thisUnit.models.Count > 0)
+                        thisUnit.processDmg(random, enemyMortalKickback, t);
+                    if (enemyUnit.models.Count > 0)
+                        enemyUnit.processDmg(random, personalMortalKickback, t);
+
+
                     t++;
                 }
                 thisCount += thisUnit.pointsPerModel* thisUnit.models.Count;

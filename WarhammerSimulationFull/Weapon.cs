@@ -83,6 +83,7 @@ namespace WarhammerSimulationFull
                 result.rend++;
             }
 
+            result.damage = dmg;
 
             for (int i = 0; i < realAtks; ++i)
             {
@@ -93,24 +94,24 @@ namespace WarhammerSimulationFull
                     result.mortal += dmg;
                 else
                 if (hitRoll == 6 && CritAutowound)
-                    result.damage += dmg;
-                else if(hitRoll == 6 && CritHit)
+                    result.damageHits += 1;
+                else if (hitRoll == 6 && CritHit)
                 {
                     woundrolls += 2;
                     for (int j = 0; j < woundrolls; ++j)
                     {
                         int woundRoll = random.Next(6) + 1;
                         if (woundRoll - Minuswound >= this.wound)
-                            result.damage += dmg;
+                            result.damageHits += 1;
                     }
                 }
                 else
-                if(hitRoll - MinusHit >= this.hit)
-                    for(int j = 0; j < woundrolls; ++j)
+                if (hitRoll - MinusHit >= this.hit)
+                    for (int j = 0; j < woundrolls; ++j)
                     {
                         int woundRoll = random.Next(6) + 1;
                         if (woundRoll - Minuswound >= this.wound)
-                            result.damage += dmg;
+                            result.damageHits += 1;
                     }
             }
             this.CritMortal = recordCritMortal;
