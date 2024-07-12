@@ -21,6 +21,7 @@ namespace WarhammerSimulationFull
         public string faction = "";
         public int wardFirstTurn = 7;
         public Boolean Etherial=false;
+        public Boolean MortalKickback =false;
 
 
 
