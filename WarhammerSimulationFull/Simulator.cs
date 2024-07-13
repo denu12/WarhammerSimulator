@@ -8,6 +8,7 @@ namespace WarhammerSimulationFull
 {
     internal class Simulator
     {
+        public static Boolean SIMULTANEOUS = true;
 
         public void Tournament(List<Unit> first, List<Unit> second)
         {

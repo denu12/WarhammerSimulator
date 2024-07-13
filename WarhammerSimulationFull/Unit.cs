@@ -234,11 +234,35 @@ namespace WarhammerSimulationFull
                 while (thisUnit.models.Count > 0 && enemyUnit.models.Count > 0)
                 {
 
-                    List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
-                    List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
+                    if(Simulator.SIMULTANEOUS == true)
+                    {
+                        List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
+                        List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
+                        enemyUnit.processDmg(random, personalDmg, t);
+                        thisUnit.processDmg(random, enemyDMG, t);
+                    }
+                    else
+                    {
+                        if (random.Next(2) > 0)
+                        {
+                            List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
+                            enemyUnit.processDmg(random, personalDmg, t);
 
-                    thisUnit.processDmg(random, enemyDMG, t);
-                    enemyUnit.processDmg(random, personalDmg, t);
+                            List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
+                            thisUnit.processDmg(random, enemyDMG, t);
+                        }
+                        else
+                        {
+                            List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
+                            thisUnit.processDmg(random, enemyDMG, t);
+
+                            List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
+                            enemyUnit.processDmg(random, personalDmg, t);
+                        }
+                    }
+
+             
+                    
 
                     List<Damage> enemyMortalKickback = new List<Damage> { new Damage(enemyUnit.MortalKickBackNumber) };
                     List<Damage> personalMortalKickback = new List<Damage> { new Damage(thisUnit.MortalKickBackNumber) };
