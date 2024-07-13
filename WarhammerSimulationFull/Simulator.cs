@@ -47,17 +47,22 @@ namespace WarhammerSimulationFull
 
                     u.secondaryVictoryScore += outcome.Item2 - outcome.Item4;
                     second[i].secondaryVictoryScore += outcome.Item4 - outcome.Item2;
-                
-                    if (outcome.Item2 - outcome.Item4 > 0.2)
-                        u.victoryscore++;
-                    else if (outcome.Item4 - outcome.Item2 < 0.2)
-                    {
+
+                    if (outcome.Item2 > 0.4 && outcome.Item4 > 0.4)
                         u.victoryscore += 0.5;
-                    }
                     else
                     {
-                        int k = 0;
+                        if (outcome.Item2 - outcome.Item4 > 0.2)
+                            u.victoryscore++;
+                        else
+                        {
+                            if (outcome.Item4 - outcome.Item2 < 0.2)
+                            {
+                                u.victoryscore += 0.5;
+                            }
+                        }
                     }
+                   
                 }
 
 
