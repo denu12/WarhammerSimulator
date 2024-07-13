@@ -257,7 +257,7 @@ namespace WarhammerSimulationFull
         public Unit KurnothSwordsWard()
         {
             List<string> weapons = new List<string> { "4;3;3;1;2;mortal" };
-            var u = new Unit("Kurnoth Swords (ward);3;220;5;4;6;", weapons);
+            var u = new Unit("Kurnoth Swords (6+ ward);3;220;5;4;6;", weapons);
             return u;
         }
 
@@ -271,7 +271,7 @@ namespace WarhammerSimulationFull
         public Unit KurnothScythesWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;3;anticharge" };
-            var u = new Unit("Kurnoth Scythes (ward);3;200;5;4;6;", weapons);
+            var u = new Unit("Kurnoth Scythes (6 + ward);3;200;5;4;6;", weapons);
             return u;
         }
 
@@ -440,7 +440,7 @@ namespace WarhammerSimulationFull
         public Unit AlarithStoneGuardWared()
         {
             List<string> weapons = new List<string> { "2;3;3;1;2;" };
-            var u = new Unit("Alarith StoneGuard (ward);5;130;2;4;5;", weapons);
+            var u = new Unit("Alarith StoneGuard (5+ ward);5;130;2;4;5;", weapons);
             return u;
         }
 
@@ -546,7 +546,7 @@ namespace WarhammerSimulationFull
         public Unit SaurusGuardWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1" };
-            var u = new Unit("Saurus Guard (5+ward);5;110;2;3;5;", weapons);
+            var u = new Unit("Saurus Guard (5+ ward);5;110;2;3;5;", weapons);
             return u;
         }
 

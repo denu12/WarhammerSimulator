@@ -154,7 +154,7 @@ namespace WarhammerSimulationFull
         public Unit SneakySnufflersWard()
         {
             List<string> weapons = new List<string> { "3;4;4;0;1", "2;4;4;0;1" };
-            var u = new Unit("Sneaky Snufflers (5+ward);6;140;2;6;5;", weapons);
+            var u = new Unit("Sneaky Snufflers (5+ ward);6;140;2;6;5;", weapons);
             return u;
         }
 
