@@ -46,8 +46,8 @@ foreach (List<Unit> units in destructionUnits)
 
 Console.WriteLine(" ");
 
-unit.name = "Treelord (only 150 pts)";
-unit.points = 150;
+unit.name = "Treelord (only 160 pts)";
+unit.points = 160;
 
 
 sim.computeVictoryScore(allUnits, unit, allUnits.Count());

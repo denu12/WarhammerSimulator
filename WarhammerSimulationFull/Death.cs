@@ -12,9 +12,17 @@ namespace WarhammerSimulationFull
         {
             List<string> weapons = new List<string> { "2;3;4;0;1;hit;anticharge" };
             var u = new Unit("Mortek Guard;10;130;1;4;6;", weapons);
+            return u;
+        }
+
+        public Unit MortekGuardEtherial()
+        {
+            List<string> weapons = new List<string> { "2;3;4;0;1;hit;anticharge" };
+            var u = new Unit("Mortek Guard (etherial);10;130;1;4;6;", weapons);
             u.Etherial = true;
             return u;
         }
+
 
         public Unit ImmortisGuard()
         {
@@ -303,7 +311,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Bonereapers()
         {
-            List<Unit> l = new List<Unit> { MortekGuard(), ImmortisGuard(), NecropolisStalkers(), KavalosDeathriders(), GothizzarHarvester(), MorghastArchai(), MorghastHarbingers()};
+            List<Unit> l = new List<Unit> { MortekGuard(), MortekGuardEtherial(), ImmortisGuard(), NecropolisStalkers(), KavalosDeathriders(), GothizzarHarvester(), MorghastArchai(), MorghastHarbingers()};
             foreach (Unit u in l)
                 u.faction = "Ossiarch Bonereapers";
 

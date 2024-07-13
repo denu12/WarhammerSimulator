@@ -199,34 +199,16 @@ namespace WarhammerSimulationFull
             for (int i = 0; i < rounds; ++i)
             {
                 Unit thisUnit = new Unit();
-                thisUnit.name = this.name;
-                thisUnit.points = this.points;
-                thisUnit.modelcount = this.modelcount;
-                thisUnit.minusHit = this.minusHit;
-                thisUnit.minusWound = this.minusWound;
-                thisUnit.minusAtk = this.minusAtk;
-                thisUnit.MortalKickback = this.MortalKickback;
-                thisUnit.wardFirstTurn = this.wardFirstTurn;
-                thisUnit.Etherial = this.Etherial;
-                double pointsPerModel = thisUnit.points / thisUnit.modelcount;
-               
-                while(thisUnit.totalPoints + pointsPerModel< points)
+                double pointsPerModel = copyUnit(this, thisUnit);
+
+                while (thisUnit.totalPoints + pointsPerModel < points)
                 {
                     thisUnit.totalPoints += pointsPerModel;
                     thisUnit.models.Add(models.First().copy());
                 }
 
                 Unit enemyUnit = new Unit();
-                enemyUnit.name = enemy.name;
-                enemyUnit.points = enemy.points;
-                enemyUnit.modelcount = enemy.modelcount;
-                enemyUnit.minusHit = enemy.minusHit;
-                enemyUnit.minusWound = enemy.minusWound;
-                enemyUnit.minusAtk = enemy.minusAtk;
-                enemyUnit.MortalKickback = enemy.MortalKickback;
-                enemyUnit.wardFirstTurn = enemy.wardFirstTurn;
-                enemyUnit.Etherial = enemy.Etherial;
-                pointsPerModel = enemyUnit.points / enemyUnit.modelcount;
+                pointsPerModel = copyUnit(enemy, enemyUnit);
 
                 while (enemyUnit.totalPoints + pointsPerModel < points)
                 {
@@ -238,7 +220,7 @@ namespace WarhammerSimulationFull
                 while (thisUnit.models.Count > 0 && enemyUnit.models.Count > 0)
                 {
 
-                    if(Simulator.SIMULTANEOUS == true)
+                    if (Simulator.SIMULTANEOUS == true)
                     {
                         List<Damage> personalDmg = thisUnit.simulateAttackSequence(random, enemyUnit.minusHit, enemyUnit.minusWound, enemyUnit.minusAtk, t);
                         List<Damage> enemyDMG = enemyUnit.simulateAttackSequence(random, thisUnit.minusHit, thisUnit.minusWound, thisUnit.minusAtk, t);
@@ -265,8 +247,8 @@ namespace WarhammerSimulationFull
                         }
                     }
 
-             
-                    
+
+
 
                     List<Damage> enemyMortalKickback = new List<Damage> { new Damage(enemyUnit.MortalKickBackNumber) };
                     List<Damage> personalMortalKickback = new List<Damage> { new Damage(thisUnit.MortalKickBackNumber) };
@@ -284,11 +266,11 @@ namespace WarhammerSimulationFull
 
                     t++;
 
-                    if(t > 8)
+                    if (t > 8)
                         break;
                 }
                 thisCount += thisUnit.points / thisUnit.modelcount * thisUnit.models.Count;
-                enemyCount += enemyUnit.points / enemyUnit.modelcount *enemyUnit.models.Count;
+                enemyCount += enemyUnit.points / enemyUnit.modelcount * enemyUnit.models.Count;
             }
 
             thisCount = thisCount / (rounds*points);
@@ -297,5 +279,20 @@ namespace WarhammerSimulationFull
             return new Tuple<string, double, string, double>(this.name, thisCount, enemy.name,enemyCount);
         }
 
+        private static double copyUnit(Unit baseUnit, Unit targetUnit)
+        {
+            double pointsPerModel;
+            targetUnit.name = baseUnit.name;
+            targetUnit.points = baseUnit.points;
+            targetUnit.modelcount = baseUnit.modelcount;
+            targetUnit.minusHit = baseUnit.minusHit;
+            targetUnit.minusWound = baseUnit.minusWound;
+            targetUnit.minusAtk = baseUnit.minusAtk;
+            targetUnit.MortalKickback = baseUnit.MortalKickback;
+            targetUnit.wardFirstTurn = baseUnit.wardFirstTurn;
+            targetUnit.Etherial = baseUnit.Etherial;
+            pointsPerModel = targetUnit.points / targetUnit.modelcount;
+            return pointsPerModel;
+        }
     }
 }
