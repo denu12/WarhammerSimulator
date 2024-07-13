@@ -287,8 +287,8 @@ namespace WarhammerSimulationFull
                     if(t > 8)
                         break;
                 }
-                thisCount += thisUnit.totalPoints / thisUnit.modelcount * thisUnit.models.Count;
-                enemyCount += enemyUnit.totalPoints / enemyUnit.modelcount *enemyUnit.models.Count;
+                thisCount += thisUnit.points / thisUnit.modelcount * thisUnit.models.Count;
+                enemyCount += enemyUnit.points / enemyUnit.modelcount *enemyUnit.models.Count;
             }
 
             thisCount = thisCount / (rounds*points);
