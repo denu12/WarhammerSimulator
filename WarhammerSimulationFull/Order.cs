@@ -295,7 +295,7 @@ namespace WarhammerSimulationFull
         public Unit Treelord()
         {
             List<string> weapons = new List<string> { "5;4;2;1;2;anticharge", "2;4;2;2;3;mortal" };
-            Unit u = new Unit("Treelord (-1 wound);1;330;14;3;7;", weapons);
+            Unit u = new Unit("Treelord (-1 wound);1;260;14;3;7;", weapons);
             u.minusWound = 1;
             return u;
         }
@@ -304,7 +304,7 @@ namespace WarhammerSimulationFull
         public Unit Durthu()
         {
             List<string> weapons = new List<string> { "4;2;2;2;5", "2;3;2;2;3;mortal" };
-            Unit u = new Unit("Durthu (wyldwood);1;260;14;3;7;", weapons);
+            Unit u = new Unit("Durthu (wyldwood);1;330;14;3;7;", weapons);
             return u;
         }
 

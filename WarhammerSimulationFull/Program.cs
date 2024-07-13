@@ -11,12 +11,14 @@ Order order = new Order();
 Chaos chaos = new Chaos();
 Death death = new Death();
 Destruction destruction = new Destruction();
-Unit unit = chaos.Twinsouls();
-Unit unit2 = order.Vanquishers();
+Unit unit = order.Treelord();
+Unit unit2 = order.Steelhelms();
 
-Console.WriteLine(unit2.simulateAverageDMG(random, 1000, 0));
 
-Console.WriteLine(unit2.simulateAverageDMG(random, 1000, 1, true));
+
+Console.WriteLine(unit.simulateAverageDMG(random, 1000, 0));
+
+Console.WriteLine(unit.simulateAverageDMG(random, 1000, 1, true));
 
 Console.WriteLine(unit.simulateFight(unit2, 100, 1000));
 
@@ -42,8 +44,15 @@ foreach (List<Unit> units in deathUnits)
 foreach (List<Unit> units in destructionUnits)
      allUnits.AddRange(units);
 
-
 Console.WriteLine(" ");
+
+unit.name = "Treelord (only 150 pts)";
+unit.points = 150;
+
+
+sim.computeVictoryScore(allUnits, unit, allUnits.Count());
+
+Console.WriteLine(unit.name + " score against everyone: " + (int) unit.victoryscore);
 
 Console.WriteLine(" ");
 

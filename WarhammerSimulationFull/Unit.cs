@@ -13,10 +13,8 @@ namespace WarhammerSimulationFull
         public double modelcount, points;
         public List<Model> models = new List<Model>();
         public string name = "";
-        public double pointsPerModel;
         public double totalPoints;
         public double victoryscore;
-        public double secondaryVictoryScore;
         public int minusWound, minusHit, minusAtk;
         public string faction = "";
         public int wardFirstTurn = 7;
@@ -39,7 +37,6 @@ namespace WarhammerSimulationFull
             this.name = split[0];
             this.modelcount = double.Parse(split[1]);
             this.points = double.Parse(split[2]);
-            this.pointsPerModel = points / modelcount;
 
             int health = int.Parse(split[3]);
             int save = int.Parse(split[4]);
@@ -203,30 +200,37 @@ namespace WarhammerSimulationFull
             {
                 Unit thisUnit = new Unit();
                 thisUnit.name = this.name;
-                thisUnit.pointsPerModel = this.pointsPerModel;
+                thisUnit.points = this.points;
+                thisUnit.modelcount = this.modelcount;
                 thisUnit.minusHit = this.minusHit;
                 thisUnit.minusWound = this.minusWound;
                 thisUnit.minusAtk = this.minusAtk;
+                thisUnit.MortalKickback = this.MortalKickback;
+                thisUnit.wardFirstTurn = this.wardFirstTurn;
+                thisUnit.Etherial = this.Etherial;
+                double pointsPerModel = thisUnit.points / thisUnit.modelcount;
                
-                while(thisUnit.totalPoints + thisUnit.pointsPerModel< points)
+                while(thisUnit.totalPoints + pointsPerModel< points)
                 {
-                    thisUnit.totalPoints += thisUnit.pointsPerModel;
+                    thisUnit.totalPoints += pointsPerModel;
                     thisUnit.models.Add(models.First().copy());
                 }
 
                 Unit enemyUnit = new Unit();
                 enemyUnit.name = enemy.name;
-                enemyUnit.pointsPerModel = enemy.pointsPerModel;
+                enemyUnit.points = enemy.points;
+                enemyUnit.modelcount = enemy.modelcount;
                 enemyUnit.minusHit = enemy.minusHit;
                 enemyUnit.minusWound = enemy.minusWound;
                 enemyUnit.minusAtk = enemy.minusAtk;
                 enemyUnit.MortalKickback = enemy.MortalKickback;
                 enemyUnit.wardFirstTurn = enemy.wardFirstTurn;
                 enemyUnit.Etherial = enemy.Etherial;
+                pointsPerModel = enemyUnit.points / enemyUnit.modelcount;
 
-                while (enemyUnit.totalPoints + enemy.pointsPerModel < points)
+                while (enemyUnit.totalPoints + pointsPerModel < points)
                 {
-                    enemyUnit.totalPoints += enemy.pointsPerModel;
+                    enemyUnit.totalPoints += pointsPerModel;
                     enemyUnit.models.Add(enemy.models.First().copy());
                 }
 
@@ -283,8 +287,8 @@ namespace WarhammerSimulationFull
                     if(t > 8)
                         break;
                 }
-                thisCount += thisUnit.pointsPerModel* thisUnit.models.Count;
-                enemyCount += enemyUnit.pointsPerModel*enemyUnit.models.Count;
+                thisCount += thisUnit.totalPoints / thisUnit.modelcount * thisUnit.models.Count;
+                enemyCount += enemyUnit.totalPoints / enemyUnit.modelcount *enemyUnit.models.Count;
             }
 
             thisCount = thisCount / (rounds*points);
