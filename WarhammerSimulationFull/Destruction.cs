@@ -326,7 +326,7 @@ namespace WarhammerSimulationFull
         public Unit IrongutsWard()
         {
             List<string> weapons = new List<string> { "3;4;2;2;3" };
-            var u = new Unit("Ironguts (6+ward);4;240;4;5;6;", weapons);
+            var u = new Unit("Ironguts (6+ ward);4;240;4;5;6;", weapons);
             return u;
         }
 

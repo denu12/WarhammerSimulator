@@ -13,7 +13,7 @@ namespace WarhammerSimulationFull
         public Unit SeekerChariot()
         {
             List<string> weapons = new List<string> { "4;3;4;1;1", "4;3;4;0;1"};
-            var u =  new Unit("Seeker Chaoriot;1;120;6;4;6;", weapons);
+            var u =  new Unit("Seeker Chariot;1;120;6;4;6;", weapons);
             return u;
         }
 
