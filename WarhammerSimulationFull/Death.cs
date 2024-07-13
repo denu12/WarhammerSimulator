@@ -78,7 +78,7 @@ namespace WarhammerSimulationFull
         public Unit KosargiNightguard()
         {
             List<string> weapons = new List<string> { "2;4;2;2;3" };
-            var u = new Unit("Kosargi Nightguard (ward);2;120;4;5;5;", weapons);
+            var u = new Unit("Kosargi Nightguard (5+ ward);2;120;4;5;5;", weapons);
             return u;
         }
 
@@ -114,7 +114,7 @@ namespace WarhammerSimulationFull
         public Unit GraveGuardWard()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1;mortal", };
-            var u = new Unit("Grave Guard (5+ward);10;150;1;4;5;", weapons);
+            var u = new Unit("Grave Guard (5+ ward);10;150;1;4;5;", weapons);
             return u;
         }
 
@@ -238,14 +238,14 @@ namespace WarhammerSimulationFull
         public Unit CryptguardWard()
         {
             List<string> weapons = new List<string> { "3;4;4;1;1" };
-            var u = new Unit("Cryptguard (5+ward);10;120;1;6;6;", weapons);
+            var u = new Unit("Cryptguard (5+ ward);10;120;1;6;6;", weapons);
             return u;
         }
 
         public Unit VarghulfCourtier()
         {
             List<string> weapons = new List<string> { "7;4;3;2;2", "1;3;2;3;3" };
-            var u = new Unit("Cryptguard (5+ward);1;180;8;5;6;", weapons);
+            var u = new Unit("Cryptguard (5+ ward);1;180;8;5;6;", weapons);
             return u;
         }
 

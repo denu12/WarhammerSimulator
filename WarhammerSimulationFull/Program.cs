@@ -92,7 +92,7 @@ static void PrintResults(List<List<Unit>> unitList)
 
         var output = units.OrderByDescending(x => x.victoryscore).ToList();
         foreach (Unit u in output)
-            Console.WriteLine("{0,-35} {1,15}", u.name, (int)u.victoryscore);
+            Console.WriteLine("{0,-35} {1,15}", u.name + ";", (int)u.victoryscore);
         Console.WriteLine(" ");
     }
 }

@@ -68,10 +68,18 @@ namespace WarhammerSimulationFull
             return u;
         }
 
-        public Unit Painbringers()
+        public Unit PainbringersRend()
         {
             List<string> weapons = new List<string> { "3;3;3;2;1" };
-            var u = new Unit("Painbringers (rend);5;130;2;3;7;", weapons);
+            var u = new Unit("Painbringers (+1 rend);5;130;2;3;7;", weapons);
+            return u;
+        }
+
+
+        public Unit Painbringers()
+        {
+            List<string> weapons = new List<string> { "3;3;3;1;1" };
+            var u = new Unit("Painbringers;5;130;2;3;7;", weapons);
             return u;
         }
 
@@ -286,7 +294,7 @@ namespace WarhammerSimulationFull
         public Unit ChosenWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;2;mortal" };
-            var u = new Unit("Chosen (nurgle, 5+ward);5;250;3;3;5;", weapons);
+            var u = new Unit("Chosen (nurgle, 5+ ward);5;250;3;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -311,7 +319,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosKnightsWard()
         {
             List<string> weapons = new List<string> { "3;3;3;1;1;charge", "2;5;3;0;1" };
-            var u = new Unit("Chaos Knights (nurgle, 5+ward);5;250;4;3;5;", weapons);
+            var u = new Unit("Chaos Knights (nurgle, 5+ ward);5;250;4;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -319,7 +327,7 @@ namespace WarhammerSimulationFull
         public Unit ChaosWarriorsWard()
         {
             List<string> weapons = new List<string> { "2;3;3;1;1;wound" };
-            var u = new Unit("Chaos Warriors (nurgle, 5+ward);10;200;2;3;5;", weapons);
+            var u = new Unit("Chaos Warriors (nurgle, 5+ ward);10;200;2;3;5;", weapons);
             u.minusHit = 1;
             return u;
         }
@@ -371,7 +379,7 @@ namespace WarhammerSimulationFull
 
         private List<Unit> Slaanesh()
         {
-            List<Unit> l = new List<Unit> { SeekerChariot(), Hellflayer(), Daemonettes(), Fiends(), Seekers(), SlickbladeSeekers(), Hellstriders(), SlaangorFiendbloods(), Painbringers(), Twinsouls(), TwinsoulsCharge() };
+            List<Unit> l = new List<Unit> { SeekerChariot(), Hellflayer(), Daemonettes(), Fiends(), Seekers(), SlickbladeSeekers(), Hellstriders(), SlaangorFiendbloods(), Painbringers(), PainbringersRend(), Twinsouls(), TwinsoulsCharge() };
             foreach (Unit u in l)
                 u.faction = "Slaanesh";
 
